@@ -9,7 +9,7 @@ def myAI(state: GameState) -> Action:
     left_after_calling = me.chips_in_stack - to_call
     can_be_called = any(player is not me and not player.has_folded and player.chips_in_stack > 0 for player in state.players)
     card, other_card = me.hole_cards
-
+    
     if card.rank != other_card.rank:
         return Action.check() if to_call == 0 else Action.fold()
 
